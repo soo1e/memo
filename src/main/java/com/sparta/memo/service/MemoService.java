@@ -34,8 +34,8 @@ public class MemoService {
     }
 
     public List<MemoResponseDTO> getMemos() {
-        // DB 조회
-        List<Memo> memos = memoRepository.findAll();
+        // 최신 수정 시간 순으로 DB 조회
+        List<Memo> memos = memoRepository.findAllByOrderByModifiedAtDesc();
         List<MemoResponseDTO> memoResponseDTOs = new ArrayList<>();
 
         for (Memo memo : memos) {
@@ -44,6 +44,7 @@ public class MemoService {
 
         return memoResponseDTOs;
     }
+
 
     @Transactional
     public Long updateMemo(Long id, MemoRequestDTO requestDto) {
