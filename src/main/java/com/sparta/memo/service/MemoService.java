@@ -5,16 +5,19 @@ import com.sparta.memo.dto.MemoResponseDTO;
 import com.sparta.memo.entity.Memo;
 import com.sparta.memo.repository.MemoRepository;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class MemoService {
 
 //    private final JdbcTemplate jdbcTemplate;
     private final MemoRepository memoRepository;
 
     public MemoService(MemoRepository memoRepository) {
-        this.memoRepository = new MemoRepository;
+        this.memoRepository = memoRepository;
     }
 
     public MemoResponseDTO createMemo(MemoRequestDTO requestDTO) {
