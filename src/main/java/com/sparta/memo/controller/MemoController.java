@@ -11,12 +11,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class MemoController {
-
-//    private final JdbcTemplate jdbcTemplate;
+// Controller -> Service -> Repository : 제어의 흐름 -> 제어의 역전이 필요함.
+// private final JdbcTemplate jdbcTemplate;
     private final MemoService memoService;
 
-    public MemoController(JdbcTemplate jdbcTemplate) {
-        this.memoService = new MemoService(jdbcTemplate);
+    public MemoController(MemoService memoService) {
+        this.memoService = memoService;
     }
 
     @PostMapping("/memos")
